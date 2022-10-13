@@ -73,7 +73,7 @@ a:hover {
 #update {
   border: 1px solid black;
   border-radius: 15px;
-  height: 19em;
+  min-height: 19em;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -302,4 +302,15 @@ a:hover {
   margin-top: 10px;
   padding: 10px;
   text-align: center;
+}
+
+.error {
+  width: 90%;
+  margin: 10px auto;
+  padding: 3px;
+  border-radius: 6px;
+  border: rgb(167, 0, 0) inset 3px;
+  background-color: rgb(255, 63, 63);
+  color: #fff;
+  font-size: 0.7rem;
 }

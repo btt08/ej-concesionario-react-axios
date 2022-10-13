@@ -1,4 +1,3 @@
-// import { UpdateForm } from './UpdateForm'
 import { Card } from './Card';
 import addImg from '../assets/img/add.png';
 
@@ -17,13 +16,7 @@ export const Content = ({ data, isLoading }) => {
           </>
         }
       </div>
-      {/* <div className="modal"
-        id="modal">
-        <div className="modal-content">
-          <h2>Actualizar vehículo</h2>
-          <UpdateForm />
-        </div>
-      </div> */}
+      {/* <UpdateModal /> */}
     </>
   )
 }

@@ -29,7 +29,7 @@ export const SearchForm = ({ setFilters, manufacturers }) => {
           maxLength: 16
         })}
       />
-      {errors.model?.type === 'maxLength' && <p className='error'>El modelo debe tener menos de 16 caracteres</p>}
+      {errors.brand?.type === 'maxLength' && <p className='error'>El modelo debe tener menos de 16 caracteres</p>}
 
       <label htmlFor="bodyType">Color</label>
       <input type="text"
