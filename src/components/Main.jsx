@@ -1,4 +1,3 @@
-import React from 'react'
 import { Content } from './Content'
 import { SearchForm } from './SearchForm'
 import { SpinnerCircular } from 'spinners-react';
@@ -16,7 +15,7 @@ export const Main = ({ data, setFilters, manufacturers, isLoading }) => {
       <section id="content"
         className="content">
         {isLoading && <SpinnerCircular style={spinnerStyle} />}
-        {!isLoading && <Content data={data} isLoading={isLoading} />}
+        {!isLoading && <Content data={data} />}
       </section>
     </main>
   )

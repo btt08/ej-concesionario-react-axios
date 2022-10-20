@@ -10,6 +10,7 @@ function App() {
   const [filters, setFilters] = useState({});
   const [manufacturers, setManufacturers] = useState([]);
   const [isLoading, setisLoading] = useState(true);
+
   const prevFilters = useRef({});
   const firstRender = useRef(true);
 
@@ -43,7 +44,7 @@ function App() {
 
     const areEqual = () => Object.keys(filters).every((key) => filters[key] === prevFilters.current[key]);
 
-    if (!areEqual() || firstRender.current) {
+    if (firstRender.current || !areEqual()) {
       setisLoading(true);
       getData();
       getManufacturers();

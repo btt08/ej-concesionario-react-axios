@@ -2,10 +2,10 @@ import { useForm } from 'react-hook-form';
 
 export const SearchForm = ({ setFilters, manufacturers }) => {
   async function searchCars(searchParams) {
-    if (Object.values(searchParams).some((value) => value !== '')) {
-      setFilters(searchParams);
-    } else {
+    if (Object.values(searchParams).every((value) => value !== '')) {
       setFilters({});
+    } else {
+      setFilters(searchParams);
     }
   }
 
