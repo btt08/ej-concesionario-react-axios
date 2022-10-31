@@ -1,15 +1,33 @@
 import { useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export const SearchForm = ({ setFilters, manufacturers }) => {
+export const SearchForm = ({ filters, setFilters, setPageNum }) => {
+  const [manufacturers, setManufacturers] = useState([]);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  useEffect(() => {
+    const getManufacturers = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/products/manufacturers`);
+        if (!response.data.error) setManufacturers(response.data.result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getManufacturers();
+  }, []);
+
   async function searchCars(searchParams) {
     if (Object.values(searchParams).every((value) => value !== '')) {
-      setFilters({});
+      setFilters({ ...filters });
+      setPageNum(0);
     } else {
-      setFilters(searchParams);
+      setFilters({ ...filters, ...searchParams });
+      setPageNum(0);
     }
   }
-
-  const { register, handleSubmit, formState: { errors } } = useForm();
 
   return (
     <form id="search" onSubmit={handleSubmit(searchCars)}>
@@ -38,7 +56,6 @@ export const SearchForm = ({ setFilters, manufacturers }) => {
         {...register('color', {
           maxLength: 10
         })} />
-
       {errors.color?.type === 'maxLength' && <p className='error'>El color debe tener menos de 10 caracteres</p>}
 
       <label htmlFor="year">Precio</label>
@@ -48,7 +65,6 @@ export const SearchForm = ({ setFilters, manufacturers }) => {
         {...register('price', {
           min: 0
         })} />
-
       {errors.price?.type === 'min' && <p className='error'>El precio debe ser positivo</p>}
 
       <button id="btn-search">Buscar</button>
