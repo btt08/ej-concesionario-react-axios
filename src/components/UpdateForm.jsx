@@ -1,6 +1,4 @@
-import React from 'react'
-
-export const UpdateForm = () => {
+export const UpdateForm = ({ showModal, setShowModal }) => {
   return (
     <form id="update">
       <label htmlFor="brand">Marca</label>
@@ -28,7 +26,9 @@ export const UpdateForm = () => {
         required />
 
       <button id="btn-update"
-        type="submit">Aceptar</button>
-      <button id="btn-cancel-update">Cancelar</button>
+        type="submit" onClick={() => {
+          window.alert('actualizado')
+        }}>Aceptar</button>
+      <button id="btn-cancel-update" onClick={setShowModal(false)}>Cancelar</button>
     </form>)
 }

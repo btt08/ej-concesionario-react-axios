@@ -59,6 +59,7 @@ a:hover {
 
 #content {
   width: 100%;
+  height: 100%;
 }
 
 #main-content {
@@ -73,7 +74,7 @@ a:hover {
 #update {
   border: 1px solid black;
   border-radius: 15px;
-  height: 19em;
+  min-height: 19em;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -181,6 +182,19 @@ a:hover {
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
+#sorting-form {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#sorting-form * {
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
 .cars {
   display: flex;
   flex-wrap: wrap;
@@ -256,9 +270,42 @@ a:hover {
   width: 100px;
   margin: 10px auto;
   padding: 4px;
-  cursor: po;
+  cursor: pointer;
   border-radius: 10px;
   text-align: center;
+}
+
+#pagination {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#pagination ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.page-num {
+  cursor: pointer;
+}
+
+.page-num.current {
+  font-size: 3rem;
+}
+
+.page-nav-btn {
+  border: none;
+  background-color: #aaa;
+  border-radius: 5px;
+  padding: 4px;
+  width: 3rem;
+  font-size: 2rem;
 }
 
 #footer-main {
@@ -302,4 +349,15 @@ a:hover {
   margin-top: 10px;
   padding: 10px;
   text-align: center;
+}
+
+.error {
+  width: 90%;
+  margin: 10px auto;
+  padding: 3px;
+  border-radius: 6px;
+  border: rgb(167, 0, 0) inset 3px;
+  background-color: rgb(255, 63, 63);
+  color: #fff;
+  font-size: 0.7rem;
 }
